@@ -1,0 +1,44 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Frontend (React/Node)
+brute-web/node_modules/
+brute-web/build/
+brute-web/.env.local
+brute-web/.env.development.local
+brute-web/.env.test.local
+brute-web/.env.production.local
+brute-web/npm-debug.log*
+brute-web/yarn-debug.log*
+brute-web/yarn-error.log*

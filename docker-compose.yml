@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  # Banco de Dados MySQL
+  db:
+    image: mysql:8.0
+    container_name: brute-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: brute_db
+      MYSQL_ROOT_PASSWORD: 13687644
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Backend Java Spring
+  api:
+    build:
+      context: ./brute-api
+    container_name: brute-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/brute_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=13687644
+    
+
+  # Frontend React + Jogo Godot
+  web:
+    build:
+      context: ./brute-web
+    container_name: brute-web
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+volumes:
+  db_data:

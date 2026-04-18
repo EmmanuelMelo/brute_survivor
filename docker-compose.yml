@@ -41,7 +41,12 @@ services:
       context: ./brute-web
     container_name: brute-web
     ports:
-      - "3000:80"
+      - "5173:5173"
+    volumes:
+      - ./brute-web:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8080
     depends_on:
       - api
 

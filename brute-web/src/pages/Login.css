@@ -1,0 +1,164 @@
+/* Container que centraliza tudo na tela */
+.pixel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box; /* O SEGREDO ESTÁ AQUI */
+    
+    /* Para garantir que nada escape para os lados */
+    overflow-x: hidden; 
+
+    background-image: url('/bg.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    image-rendering: pixelated;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+.pixel-logo {
+    max-width: 80%;
+    height: auto;
+    
+    /* Regra de ouro para Pixel Art não ficar embaçada */
+    image-rendering: pixelated; 
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.3));
+}
+
+/* O "Card" de Login - Estilo Placa de Madeira do Tiny Swords */
+.pixel-card {
+  background-color: #f4cccc; /* Tom de pergaminho/madeira clara */
+  border: 4px solid #322125; /* Borda escura clássica de pixel art */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 8px 8px 0px 0px #ab5236; /* Sombra sólida (depth) */
+  max-width: 350px;
+  width: 90%;
+}
+
+.pixel-input::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Título com contorno */
+.pixel-card h1 {
+  font-size: 37px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #29adff;
+  -webkit-text-stroke: 1px #000;
+}
+
+/* Grupos de Input */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre o label e o input */
+    margin-bottom: 15px; /* Espaço entre o bloco de usuário e o de senha */
+}
+
+.input-group label {
+  font-size: 15px;
+  color: #322125;
+}
+
+/* Inputs estilo Pixel */
+.pixel-input {
+  border: 4px solid #322125;
+  padding: 12px;
+  background-color: #ffffff; /* Fundo branco */
+  color: #322125;            /* TEXTO ESCURO (A correção está aqui!) */
+  outline: none;
+  font-family: 'Press Start 2P', cursive; /* Garante que a fonte pixelada apareça no input */
+  font-size: 14px;           /* Ajuste para caber bem no campo */
+  width: 100%;
+  box-sizing: border-box;    /* Garante que o padding não "estoure" a largura */
+}
+
+.pixel-title {
+    color: #29adff;
+    text-shadow: 3px 3px 0px #000;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pixel-input:focus {
+  border-color: #29adff;
+}
+
+/* O Botão Squishy (Estilo Tiny Swords) */
+.pixel-button {
+  background-color: #00e436; /* Verde vibrante */
+  border: 4px solid #322125;
+  color: white;
+  padding: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: inset -4px -4px 0px 0px #008751; /* Sombra interna para volume */
+  margin-top: 10px;
+  transition: all 0.1s;
+}
+
+.pixel-button:hover {
+  background-color: #24f04e;
+  transform: scale(1.02);
+}
+
+.pixel-button:active {
+  transform: translateY(4px);
+  box-shadow: inset 0px 0px 0px 0px #008751;
+}
+
+.pixel-button-secondary {
+    background-color: #ffec27; /* Amarelo vibrante */
+    border: 4px solid #322125;
+    color: #322125;
+    padding: 10px;
+    font-size: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: inset -4px -4px 0px 0px #ab5236;
+    margin-top: 5px;
+    transition: all 0.1s;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.pixel-button-secondary:active {
+    transform: translateY(2px);
+    box-shadow: inset 0px 0px 0px 0px #ab5236;
+}
+
+.register-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    border-top: 2px solid #322125;
+    padding-top: 15px;
+}
+
+.register-link span {
+    font-size: 15px;
+    color: #322125;
+}
+
+.pixel-subtitle {
+    font-size: 12px;
+    text-align: center;
+    color: #ab5236;
+    margin-bottom: 10px;
+}

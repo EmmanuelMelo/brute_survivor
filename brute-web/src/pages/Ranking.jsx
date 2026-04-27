@@ -15,7 +15,7 @@ export default function Ranking() {
 
         // 1. Verificação de segurança: Se não tem token, tchau!
         if (!token) {
-            navigate("/login", { replace: true }); // O 'replace' apaga a rota de ranking do histórico
+            navigate("/login", { replace: true });
             return;
         }
         // Busca o Top 10 que configuramos no Spring Boot
@@ -64,6 +64,13 @@ export default function Ranking() {
                         ))}
                     </tbody>
                 </table>
+                <button 
+                    className="pixel-button-play" 
+                    onClick={() => navigate("/game")}
+                >
+                    JOGAR
+                </button>
+
                 <button className="pixel-button-back" onClick={handleLogout}>
                     SAIR DA CONTA
                 </button>

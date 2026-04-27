@@ -152,3 +152,32 @@ html, body {
 * {
   box-sizing: border-box; /* Aplica a correção do Box Model em tudo por segurança */
 }
+
+/* Botão base para a UI do jogo */
+.pixel-button-ui {
+    background-color: #ffec27; /* Amarelo vibrante */
+    border: 3px solid #322125;
+    color: #322125;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow: inset -3px -3px 0px 0px #ab9b00;
+    text-transform: uppercase;
+}
+
+.pixel-button-ui:active {
+    transform: translateY(2px);
+    box-shadow: inset 0px 0px 0px 0px #ab9b00;
+}
+
+/* Variante para o botão de voltar */
+.pixel-button-ui.secondary {
+    background-color: #6b6375;
+    color: white;
+    box-shadow: inset -3px -3px 0px 0px #3e3846;
+}
+
+.pixel-button-ui:hover {
+    filter: brightness(1.1);
+}

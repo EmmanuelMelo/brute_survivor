@@ -61,6 +61,36 @@
     font-weight: bold;
 }
 
+.pixel-button-play {
+    margin-top: 30px; /* Espaço após a tabela */
+    margin-bottom: 10px; /* Espaço antes do botão de sair */
+    width: 100%;
+    background-color: #00e436; /* Verde "Tiny Swords" */
+    border: 4px solid #322125;
+    color: #322125;
+    padding: 12px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: inset -4px -4px 0px 0px #00ad2b; /* Sombra interna para profundidade */
+    text-transform: uppercase;
+    font-size: 10px;
+    transition: all 0.1s;
+}
+
+.pixel-button-play:hover {
+    filter: brightness(1.1);
+}
+
+.pixel-button-play:active {
+    transform: translateY(4px);
+    box-shadow: inset 0px 0px 0px 0px #00ad2b;
+}
+
+/* Ajuste no botão de sair para não ficar colado */
+.pixel-button-back {
+    margin-top: 5px; 
+}
+
 .pixel-button-back {
     margin-top: 20px;
     width: 100%;

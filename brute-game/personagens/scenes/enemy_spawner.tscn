@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://srmfii7x5wev"]
+
+[ext_resource type="Script" uid="uid://p7lrwfpv6t04" path="res://personagens/scripts/enemy_spawner.gd" id="1_axniw"]
+
+[sub_resource type="Curve2D" id="Curve2D_fq0uy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -523, -344, 0, 0, 0, 0, -294, -415, 0, 0, 0, 0, 40, -451, 0, 0, 0, 0, 336, -404, 0, 0, 0, 0, 441, -196, 0, 0, 0, 0, 480, -14, 0, 0, 0, 0, 452, 211, 0, 0, 0, 0, 373, 310, 0, 0, 0, 0, 98, 398, 0, 0, 0, 0, -153, 398, 0, 0, 0, 0, -397, 340, 0, 0, 0, 0, -530, 166, 0, 0, 0, 0, -566, -7, 0, 0, 0, 0, -549, -230)
+}
+point_count = 14
+
+[node name="EnemySpawner" type="Node2D" unique_id=33025921]
+script = ExtResource("1_axniw")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=653650019]
+wait_time = 3.0
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1467563525]
+curve = SubResource("Curve2D_fq0uy")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1951302459]
+position = Vector2(-523, -344)
+rotation = -0.3006455
+
+[connection signal="timeout" from="SpawnTimer" to="." method="spawn_timer_timeout"]

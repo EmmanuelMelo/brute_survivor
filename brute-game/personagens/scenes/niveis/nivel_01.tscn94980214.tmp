@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ci72mccejgfc2"]
+
+[ext_resource type="PackedScene" uid="uid://d3kb02oe0gqiv" path="res://personagens/scenes/goblin_torch.tscn" id="1_vcny0"]
+[ext_resource type="PackedScene" uid="uid://breqjwyqrflmv" path="res://personagens/scenes/boneco_de_treino.tscn" id="2_b1cxk"]
+
+[node name="Nivel01" type="Node2D" unique_id=2015445630]
+
+[node name="GoblinTorch" parent="." unique_id=692249711 instance=ExtResource("1_vcny0")]
+position = Vector2(256, 69)
+
+[node name="BonecoDeTreino" parent="." unique_id=2038422200 instance=ExtResource("2_b1cxk")]
+position = Vector2(137, 230)

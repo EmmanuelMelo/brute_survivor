@@ -27,13 +27,16 @@
 
 📂 Estrutura do Projeto
     src/
-    ├── assets/          # Imagens e ícones estáticos
-    ├── context/         # AuthContext para gerenciamento de login
-    ├── pages/           # Componentes de página (Login, Register, Ranking)
-    ├── services/        # Configuração do Axios (API)
-    ├── App.jsx          # Gerenciador de rotas
-    ├── index.css        # Resets globais e variáveis de cores
-    └── main.jsx         # Ponto de entrada do React
+ ├── assets/          # Sprites, logotipos e backgrounds
+ ├── context/         # AuthContext (Gerenciamento de sessão)
+ ├── pages/           
+ │    ├── Login/      # Tela de entrada
+ │    ├── Ranking/    # Exibição dos Top 10
+ │    └── Game/       # Arena com Iframe e controles de UI
+ ├── services/        # Configuração da API (Axios instance)
+ └── App.jsx          # Definição de rotas protegidas
+public/
+ └── game/            # Arquivos exportados do Godot (.wasm, .pck, .js)
 
 
 🔧 Configuração e Instalação

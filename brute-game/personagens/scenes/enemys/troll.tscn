@@ -1,0 +1,416 @@
+[gd_scene format=3 uid="uid://dce8owgft8n1r"]
+
+[ext_resource type="Script" uid="uid://bpv115owckqsy" path="res://personagens/scripts/troll.gd" id="1_xs7ve"]
+[ext_resource type="Texture2D" uid="uid://cmd13qpol7ini" path="res://personagens/assets/enemys/Troll.png" id="1_y5yrs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xs7ve"]
+radius = 61.0
+height = 122.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebeo8"]
+
+[sub_resource type="Animation" id="Animation_xs7ve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_y5yrs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textura:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AreaDeAtaque/Collision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtBox/Collision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Textura:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shape:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MovCollision:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ebeo8"]
+resource_name = "andando"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_y5yrs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textura:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_1l4kj"]
+resource_name = "atacando"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_y5yrs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textura:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.8, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AreaDeAtaque/Collision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ji22h"]
+resource_name = "exausto"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_y5yrs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textura:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
+}
+
+[sub_resource type="Animation" id="Animation_mh302"]
+resource_name = "morte"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_y5yrs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textura:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox/Collision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y5yrs"]
+resource_name = "parado"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_y5yrs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textura:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_o8l0c"]
+resource_name = "perdendo_vida"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_y5yrs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textura:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Textura:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.35, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.25882354, 0, 1), Color(1, 0.25882354, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xs7ve"]
+_data = {
+&"RESET": SubResource("Animation_xs7ve"),
+&"andando": SubResource("Animation_ebeo8"),
+&"atacando": SubResource("Animation_1l4kj"),
+&"exausto": SubResource("Animation_ji22h"),
+&"morte": SubResource("Animation_mh302"),
+&"parado": SubResource("Animation_y5yrs"),
+&"perdendo_vida": SubResource("Animation_o8l0c")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y5yrs"]
+radius = 140.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs7ve"]
+radius = 560.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ebeo8"]
+radius = 74.671005
+height = 165.91792
+
+[node name="Troll" type="CharacterBody2D" unique_id=1647904900 node_paths=PackedStringArray("recarga_do_ataque", "tempo_exaustao", "shape", "textura", "anim", "area_de_ataque")]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_xs7ve")
+recarga_do_ataque = NodePath("TimerAtaque")
+tempo_exaustao = NodePath("TimerExausto")
+shape = NodePath("Shape")
+textura = NodePath("Textura")
+anim = NodePath("Anim")
+area_de_ataque = NodePath("AreaDeAtaque/Collision")
+velocidade_de_movimento = 170.0
+ataque = 15
+vida = 230
+classe_atual = "BOSS"
+enemy_score = 30
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=783480691]
+position = Vector2(0, -90)
+texture = ExtResource("1_y5yrs")
+hframes = 12
+vframes = 8
+
+[node name="TextAut" type="Sprite2D" parent="." unique_id=319439039]
+visible = false
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1186497984]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="HurtBox" unique_id=2077567854]
+position = Vector2(0, -60)
+shape = SubResource("CapsuleShape2D_xs7ve")
+
+[node name="MovCollision" type="CollisionShape2D" parent="." unique_id=47893407]
+shape = SubResource("CircleShape2D_ebeo8")
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=435401751]
+libraries/ = SubResource("AnimationLibrary_xs7ve")
+autoplay = &"parado"
+
+[node name="AreaDeAtaque" type="Area2D" parent="." unique_id=64345276]
+collision_layer = 0
+collision_mask = 12
+
+[node name="Collision" type="CollisionShape2D" parent="AreaDeAtaque" unique_id=369115675]
+position = Vector2(32, -20)
+shape = SubResource("CircleShape2D_y5yrs")
+disabled = true
+
+[node name="Deteccao" type="Area2D" parent="." unique_id=1724598423]
+
+[node name="Collision" type="CollisionShape2D" parent="Deteccao" unique_id=67330751]
+shape = SubResource("CircleShape2D_xs7ve")
+
+[node name="TimerAtaque" type="Timer" parent="." unique_id=1687727828]
+wait_time = 1.2
+one_shot = true
+
+[node name="TimerExausto" type="Timer" parent="." unique_id=168716530]
+wait_time = 3.0
+one_shot = true
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1006669428]
+position = Vector2(-53, -42)
+rotation = -1.2217305
+shape = SubResource("CapsuleShape2D_ebeo8")
+disabled = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=713485112]
+
+[connection signal="area_entered" from="AreaDeAtaque" to="." method="area_em_contato"]
+[connection signal="body_entered" from="AreaDeAtaque" to="." method="corpo_em_contato"]
+[connection signal="body_entered" from="Deteccao" to="." method="deteccao_body_entered"]
+[connection signal="body_exited" from="Deteccao" to="." method="deteccao_body_exited"]
+[connection signal="timeout" from="TimerAtaque" to="." method="quando_ataque_recarregar"]
+[connection signal="timeout" from="TimerExausto" to="." method="exausto_timeout"]

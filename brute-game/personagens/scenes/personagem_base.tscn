@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dbhifi6cs4ta6"]
+
+[ext_resource type="Script" uid="uid://csyep8hahygw1" path="res://personagens/scripts/personagem_base.gd" id="1_5u4o5"]
+[ext_resource type="Texture2D" uid="uid://dufjsa4asemxo" path="res://personagens/assets/Dead.png" id="2_wgigd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgigd"]
+radius = 5.0
+height = 20.0
+
+[node name="PersonagemBase" type="CharacterBody2D" unique_id=692249711]
+script = ExtResource("1_5u4o5")
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1084630471]
+position = Vector2(0, -32)
+texture = ExtResource("2_wgigd")
+hframes = 7
+vframes = 2
+
+[node name="TextAux" type="Sprite2D" parent="." unique_id=4154671]
+visible = false
+position = Vector2(0, -36)
+hframes = 7
+vframes = 2
+
+[node name="Colision" type="CollisionShape2D" parent="." unique_id=1783541916]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wgigd")
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=247840492]
+
+[node name="AreaDeAtaque" type="Area2D" parent="." unique_id=1518108062]
+
+[node name="Collision" type="CollisionShape2D" parent="AreaDeAtaque" unique_id=1572697154]
+disabled = true
+
+[connection signal="body_entered" from="AreaDeAtaque" to="." method="corpo_em_contato"]

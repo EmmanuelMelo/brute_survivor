@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ec6hjp0nd25f"]
+
+[ext_resource type="Texture2D" uid="uid://lv44ql1qcchw" path="res://personagens/assets/goblins/Dynamite.png" id="1_86ec2"]
+[ext_resource type="Script" uid="uid://cnvddv10fkfy7" path="res://personagens/scripts/projetil_base.gd" id="1_oeo6i"]
+
+[sub_resource type="Animation" id="Animation_86ec2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_oeo6i"]
+resource_name = "animacao_dinamite"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pmqb"]
+_data = {
+&"RESET": SubResource("Animation_86ec2"),
+&"animacao_dinamite": SubResource("Animation_oeo6i")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oeo6i"]
+radius = 64.0
+
+[node name="Dinamite" type="Area2D" unique_id=1143080646 node_paths=PackedStringArray("textura", "tempo_para_explosao", "formato_de_colisao", "tempo_para_deletar")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_oeo6i")
+velocidade_de_movimento = 384.0
+velocidade_de_rotacao = 300.0
+textura = NodePath("Sprite")
+tempo_para_explosao = NodePath("TempoParaExplosao")
+formato_de_colisao = NodePath("Shape")
+tempo_para_deletar = NodePath("TempoParaDeletar")
+ataque = 19
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1886971685]
+texture = ExtResource("1_86ec2")
+hframes = 6
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=1402940288]
+libraries/ = SubResource("AnimationLibrary_0pmqb")
+autoplay = &"animacao_dinamite"
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1990095296]
+shape = SubResource("CircleShape2D_oeo6i")
+disabled = true
+
+[node name="TempoParaExplosao" type="Timer" parent="." unique_id=1697559403]
+one_shot = true
+
+[node name="TempoParaDeletar" type="Timer" parent="." unique_id=993942640]
+
+[connection signal="area_entered" from="." to="." method="quando_area_entrar_em_contato"]
+[connection signal="body_entered" from="." to="." method="quando_um_corpo_entrar_contato"]
+[connection signal="timeout" from="TempoParaExplosao" to="." method="explosao"]
+[connection signal="timeout" from="TempoParaDeletar" to="." method="deletar"]

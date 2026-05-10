@@ -15,15 +15,19 @@ pipeline {
 
         stage('Testes Unitários') {
             steps {
-                echo 'Rodando testes do Spring Boot...'
-                sh './mvnw clean test'
+                dir('brute-api') {
+                    echo 'Rodando testes do Spring Boot...'
+
+                    sh 'chmod +x mvnw'
+                    sh './mvnw clean test'
+                }
             }
         }
     }
 
     post {
         always {
-            junit 'target/surefire-reports/*.xml'
+            junit 'brute-api/target/surefire-reports/*.xml'
         }
         success {
             echo 'Todos os testes passaram com sucesso! 🎉'

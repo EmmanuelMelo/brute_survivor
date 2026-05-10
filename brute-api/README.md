@@ -91,4 +91,4 @@ Esta é a API REST robusta que gerencia a persistência de usuários, autentica�
 
 Desenvolvido com foco em performance e segurança para o projeto Brute Survivor. 🎮
 
-Teste de CI/CD com Jenkins :D
+Teste de CI/CD com Jenkins :)

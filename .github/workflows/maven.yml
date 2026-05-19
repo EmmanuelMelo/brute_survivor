@@ -9,6 +9,7 @@ on:
     branches: ['**']
     paths:
       - 'brute-api/**'
+      - '.github/workflows/**'
 
 jobs:
   build:

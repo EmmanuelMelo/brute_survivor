@@ -3,13 +3,9 @@ name: Java CI with Maven
 on:
   push:
     branches: ['**']
-    paths:
-      - 'brute-api/**'
+
   pull_request:
     branches: ['**']
-    paths:
-      - 'brute-api/**'
-      - '.github/workflows/**'
 
 jobs:
   build:

@@ -2,15 +2,23 @@ name: Java CI with Maven
 
 on:
   push:
-    # run on every push to any branch
     branches: ['**']
+    paths:
+      - 'brute-api/**'
   pull_request:
     branches: ['**']
+    paths:
+      - 'brute-api/**'
 
 jobs:
   build:
     name: Build and test
     runs-on: ubuntu-latest
+
+
+    defaults:
+      run:
+        working-directory: ./brute-api
 
     steps:
       - name: Checkout repository
@@ -26,13 +34,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.m2/repository
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          key: ${{ runner.os }}-m2-${{ hashFiles('brute-api/**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-m2-
 
       - name: Run Maven tests
         run: |
-          # ensure wrapper is executable on linux runners
           chmod +x mvnw || true
           ./mvnw -B -DskipTests=false test
 
@@ -41,5 +48,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports
-          path: target/surefire-reports
-
+          path: brute-api/target/surefire-reports
